@@ -1,0 +1,13 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+
+ 
+
+  <groupId>com.montrell.app</groupId>
+
+  <artifactId>SimpliHello</artifactId>
+
+  <version>1</version>
+
+</project>
