@@ -1,7 +1,7 @@
 pipeline {
 	agent any
-	#triggers {cron('* * * * *')}
-	#options {timeout (time: 30)}
+	/*triggers {cron('* * * * *')}
+	 options {timeout (time: 30)}*/
 	stages{
 		stage("Checkout"){
 			steps{
