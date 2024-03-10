@@ -13,10 +13,13 @@ pipeline {
 				sh 'java SimpliHello'
 			}
 		}
-		stage("Build"){
+		stage("Compiling"){
 			steps{
 				sh 'mvn compiler:compile'
 			}
+		}
+		stage("Docker Build Image"){
+			sh 'docker build -t javaapp .'
 		}	
 	}
 
