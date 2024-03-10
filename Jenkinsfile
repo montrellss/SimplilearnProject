@@ -10,7 +10,7 @@ pipeline {
 		}
 		stage("Compile"){
 			steps{
-				 sh "./javac SimpliHello"
+				sh  './javac SimpliHello'
 			}
 		}	
 	}
