@@ -18,8 +18,8 @@ pipeline {
 				sh 'mvn compiler:compile'
 			}
 		}
-		stage("Docker Build Image"){
-			sh 'docker build -t javaapp .'
+		stage("DockerBuildImage"){
+				sh 'docker build -t javaapp .'
 		}	
 	}
 
