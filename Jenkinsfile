@@ -27,7 +27,7 @@ pipeline {
 		stage('Build Image'){
 			steps{
 				script{
-					sh 'docker build -t simplilearnproject .'
+					sh 'sudo docker build -t simplilearnproject .'
 				}
 			}
 
