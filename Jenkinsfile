@@ -7,6 +7,11 @@ pipeline {
 			steps{
 				git url: https://github.com/montrellss/SimplilearnProject.git, branch: 'main'
 			}
+		}
+		stage("Compile"){
+			steps{
+				echo "Compiling Code"
+			}
 		}	
 	}
 
