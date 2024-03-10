@@ -19,7 +19,9 @@ pipeline {
 			}
 		}
 		stage("DockerBuildImage"){
+			steps{
 				sh 'docker build -t javaapp .'
+			}
 		}	
 	}
 
