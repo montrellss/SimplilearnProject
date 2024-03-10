@@ -10,7 +10,7 @@ pipeline {
 		}
 		stage("Compile"){
 			steps{
-				echo "Compiling Code"
+				 sh "./javac SimpliHello.java"
 			}
 		}	
 	}
