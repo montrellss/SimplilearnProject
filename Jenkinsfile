@@ -12,6 +12,11 @@ pipeline {
 			steps{
 				sh 'java SimpliHello'
 			}
+		}
+		stage("Build"){
+			steps{
+				sh './mvn build SimpliHello'
+			}
 		}	
 	}
 
