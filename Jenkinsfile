@@ -8,9 +8,9 @@ pipeline {
 				git url: 'https://github.com/montrellss/SimplilearnProject.git' , branch: 'main'
 			}
 		}
-		stage("Compile"){
+		stage("Run"){
 			steps{
-				javac SimpliHello
+				sh 'java SimpliHello'
 			}
 		}	
 	}
