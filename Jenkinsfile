@@ -15,7 +15,7 @@ pipeline {
 		}
 		stage("Build"){
 			steps{
-				sh './mvn build SimpliHello'
+				sh './mvn build SimpliHello.java'
 			}
 		}	
 	}
