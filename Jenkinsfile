@@ -2,25 +2,47 @@ pipeline {
 	agent any
 	/*triggers {cron('* * * * *')}
 	 options {timeout (time: 30)}*/
+	environment{
+		IMAGE_TAG = 'v1.0'
+	}
+
 	stages{
 		stage("Checkout"){
 			steps{
 				git url: 'https://github.com/montrellss/SimplilearnProject.git' , branch: 'main'
 			}
 		}
-		stage("Run"){
+		stage("Build"){
 			steps{
-				sh 'java SimpliHello'
+				//Execute build steps (Maven build)
+				sh 'mvn clean package'
 			}
 		}
-		stage("Compiling"){
+		stage("Test"){
 			steps{
-				sh 'mvn compiler:compile'
+				//Execute testing steps
+				sh 'mvn test'
 			}
 		}
-		stage("DockerBuildImage"){
+		stage('Build Image'){
 			steps{
-				sh 'sudo docker build -t nginx .'
+				script{
+					docker.build('montrellssdockerhub/simplilearnproject:latest')
+				}
+			}
+
+		}
+		stage("Deploy"){
+			steps{
+				script{
+					def registryUrl = 'https://registry.hub.docker.com'
+					def credentialsId = 'montrellssdockerhub'
+					def dockerImage = "user/SimpliLearn:${IMAGE_TAG}"
+			
+					docker.withRegistry(registryUrl, credentialsId){
+						docker.image(dockerImage).push()
+					}
+				}
 			}
 		}	
 	}
