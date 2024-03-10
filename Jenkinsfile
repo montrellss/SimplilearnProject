@@ -27,7 +27,7 @@ pipeline {
 		stage('Build Image'){
 			steps{
 				script{
-					docker.build('montrellssdockerhub/simplilearnproject:latest')
+					sh 'docker build -t simplilearnproject'
 				}
 			}
 
