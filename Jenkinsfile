@@ -20,7 +20,7 @@ pipeline {
 		}
 		stage("DockerBuildImage"){
 			steps{
-				sh 'docker build -t javaapp .'
+				sh 'sudo docker build -t javaapp .'
 			}
 		}	
 	}
